@@ -51,21 +51,23 @@ class Solution(object):
         # return Counter(s) == Counter(t)
 
         # solution with normal dictionary
-        if len(s) != len(t):
-            return False
+        # if len(s) != len(t):
+        #     return False
         
-        countS, countT = {}, {}
+        # countS, countT = {}, {}
 
-        for i in range(len(s)):
-            countS[s[i]] = countS.get(s[i],0) + 1
-            countT[t[i]] = countS.get(s[i],0) + 1
+        # for i in range(len(s)):
+        #     countS[s[i]] = countS.get(s[i],0) + 1
+        #     countT[t[i]] = countS.get(t[i],0) + 1
         
-        for c in countS:
-            if countS[c] != countT.get(t[c],0):
-                return False
+        # for c in countS:
+        #     if countS[c] != countT.get(c,0):    
+        #         return False
         
-        return True
+        # return True
 
+        # solution based on buildin sorted function
+        return sorted(s) == sorted(t)
 
 solution = Solution()
 print(solution.isAnagram("aacc","ccac"))
