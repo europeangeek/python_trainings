@@ -40,7 +40,7 @@ class Solution(object):
         #         if num_1 + num_2 == target and idx != idx_:
         #             return [idx,idx_]
         
-        # hashmap solution
+        # hashmap solution Beats 91.66% in terms of runtime 33ms, beats only 56% of memory 14.14 mb.
         tmp = {}
         for i, num in enumerate(nums):
             if target - num in tmp:
