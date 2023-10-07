@@ -27,10 +27,16 @@ class Solution(object):
         :type k: int
         :rtype: List[int]
         """
-        counter_dict = Counter(nums)
-        print(counter_dict)
-        return [k for k,v in Counter(nums).most_common(k)]
-nums = [1,1,1,2,2,3,7,8,9,9,9] 
-k = 2
+        # return [k for k,v in Counter(nums).most_common(k)]
+        counter = {}
+        for num in nums:
+            if num not in counter:
+                counter[num] = 1
+            else:
+                counter[num] += 1
+        sorted_dict = sorted(counter.items(), key=lambda x: counter[x[1]])
+        return [k for k,v in sorted_dict[:k]]
+nums = [-1,-1] 
+k = 1
 solution = Solution().topKFrequent(nums,k)
 print(solution)
