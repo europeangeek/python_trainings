@@ -35,20 +35,43 @@ class Solution(object):
         #     if new_nums[el -1] + 1 == new_nums[el]:
         #         consecutive_elements.append(new_nums[el])
         # return len(consecutive_elements)
-        sequences = defaultdict(set)
-        set_nums = sorted(set(nums))
-        num_of_sequence = 0
-        for el in range(len(set_nums)):
-            if el == 0:
-                sequences[num_of_sequence].add(set_nums[el])
-                continue
-            if set_nums[el -1] + 1 == set_nums[el]:
-                sequences[num_of_sequence].add(set_nums[el])
-            else:
-                num_of_sequence += 1
-                sequences[num_of_sequence].add(set_nums[el])
-        return max([len(sequences[el]) for el in range(len(sequences))])
-    
+        # sequences = defaultdict(set)
+        # set_nums = sorted(set(nums))
+        # if len(set_nums) == 0:
+        #     return 0
+        # num_of_sequence = 0
+        # for el in range(len(set_nums)):
+        #     if el == 0:
+        #         sequences[num_of_sequence].add(set_nums[el])
+        #         continue
+        #     if set_nums[el -1] + 1 == set_nums[el]:
+        #         sequences[num_of_sequence].add(set_nums[el])
+        #     else:
+        #         num_of_sequence += 1
+        #         sequences[num_of_sequence].add(set_nums[el])
+        # return max([len(sequences[el]) for el in range(len(sequences))])
+        # numSet = set(nums)
+        # longest_sequence = 0
+        # for n in nums:
+        #     # check if its start of a sequence
+        #     if n - 1 not in numSet:
+        #         length = 0
+        #         while (n + length) in numSet:
+        #             length += 1
+        #         if length > longest_sequence:
+        #             longest_sequence = length
+        # return longest_sequence
+        numSet = set(nums)
+        longest_sequence = 0
+        for n in numSet:
+            # check if its start of a sequence
+            if n - 1 not in numSet:
+                length = 0
+                while (n + length) in numSet:
+                    length += 1
+                longest_sequence = max(length, longest_sequence)
+        return longest_sequence
+
 solution = Solution()
 # nums = [0,3,7,2,5,8,4,6,0,1]
 nums = [100, 4, 200, 1, 3, 2]
