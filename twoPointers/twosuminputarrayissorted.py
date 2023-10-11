@@ -42,19 +42,19 @@ class Solution(object):
         :type target: int
         :rtype: List[int]
         """
-        l = 0
-        r = len(numbers) -1
-
+        if target in numbers and len(numbers) > 3:
+            l, r = 0, numbers.index(target)
+        else:
+            l, r = 0, len(numbers) - 1
         while l < r:
-            if numbers[l] + numbers[r] > target:
+            current_sum = numbers[l] + numbers[r]
+            if current_sum > target:
                 r -= 1
-                continue
-            elif numbers[l] + numbers[r] < target:
+            elif current_sum < target:
                 l += 1
-                continue
             else:
                 return [l + 1, r +1]
-            
+        return
 
             
             
