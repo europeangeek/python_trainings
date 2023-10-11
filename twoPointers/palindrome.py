@@ -36,34 +36,21 @@ class Solution(object):
         :type s: str
         :rtype: bool
         """
-        # this is first basic solution that came up to my mind. Its linear but with use of additional memory
-        # valid_letters = string.ascii_lowercase + string.digits
-        # print(valid_letters)
-        # cleared_s = "".join([letter for letter in s if letter in valid_letters]).lower()
-        # reversed_s = cleared_s[::-1]
-        # return cleared_s == reversed_s
-        # solution with a pointers
-        valid_letters = string.ascii_lowercase + string.digits
-        l = 0
-        r = len(s) -1
-        while l != r:
-            left_letter = s[l].lower()
-            right_letter = s[r].lower()
-            if left_letter not in valid_letters:
+        l, r = 0, len(s) - 1
+        while l < r:
+            while l < r and not self.isAlfaNumeric(s[l]):
                 l += 1
-                continue
-            if right_letter not in valid_letters:
+            while r > l and not self.isAlfaNumeric(s[r]):
                 r -= 1
-                continue
-            if left_letter == right_letter:
-                if r - l > 1:
-                    l += 1
-                    r -= 1
-                    continue
-                return True
-            else:
+            if s[l] != s[r]:
                 return False
+            l, r = l + 1, r - 1
         return True
+    def isAlfaNumeric(self, key):
+        return (ord('A') <= ord(key) <= ord('Z') or
+                ord('a') <= ord(key) <= ord('z') or
+                ord('0') <= ord(key) <= ord('9')
+                )
                     
 
 
