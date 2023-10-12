@@ -42,10 +42,7 @@ class Solution(object):
         :type target: int
         :rtype: List[int]
         """
-        if target in numbers and len(numbers) > 3:
-            l, r = 0, numbers.index(target)
-        else:
-            l, r = 0, len(numbers) - 1
+        l, r = 0, len(numbers) -1
         while l < r:
             current_sum = numbers[l] + numbers[r]
             if current_sum > target:
