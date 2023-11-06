@@ -28,7 +28,7 @@ class Solution(object):
         # else:
         #     return False
 
-        # return len(nums) != len(set(nums))
+        return len(nums) != len(set(nums))
 
         # hset = set()
         # for idx in nums:
@@ -37,7 +37,9 @@ class Solution(object):
         #     else:
         #         hset.add(idx)
 
-
+nums = [1,2,3,1]
+solution = Solution()
+print(solution.containsDuplicate(nums)) 
 
 
         

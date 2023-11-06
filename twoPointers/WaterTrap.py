@@ -21,7 +21,7 @@
 # n == height.length
 # 1 <= n <= 2 * 104
 # 0 <= height[i] <= 105
-
+# write a unit test for that
 
 class Solution(object):
     def trap(self, height):
@@ -44,7 +44,6 @@ class Solution(object):
                 rightMax = max(rightMax, height[r])
                 res += rightMax - height[r]
         return res
-
 
 
 height = [0,10,0,2,1,0,1,3,2,1,2,1]
