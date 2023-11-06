@@ -27,8 +27,6 @@
 # 1 <= s.length <= 104
 # s consists of parentheses only '()[]{}'.
 
-
-
 class Solution(object):
     def isValid(self, s):
         """
@@ -51,8 +49,7 @@ class Solution(object):
             else:
                 stack.append(c)
         return True if not stack else False
-                
-
+    
 s = "([)]{}"
 solution = Solution().isValid(s)
 print(solution)
