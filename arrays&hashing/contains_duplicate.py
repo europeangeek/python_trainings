@@ -22,20 +22,16 @@ class Solution(object):
         :type nums: List[int]
         :rtype: bool
         """
-        # set_of_nums = set(nums)
-        # if len(nums) != len(set_of_nums):
-        #     return True
-        # else:
-        #     return False
 
         return len(nums) != len(set(nums))
 
-        # hset = set()
-        # for idx in nums:
-        #     if idx in hset:
-        #         return True
-        #     else:
-        #         hset.add(idx)
+        hset = set()
+        for n in nums:
+            if n in hset:
+                return True
+            else:
+                hset.add(n)
+        return False
 
 nums = [1,2,3,1]
 solution = Solution()
