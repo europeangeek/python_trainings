@@ -69,7 +69,7 @@ class Solution(object):
         # solution based on buildin sorted function
         return sorted(s) == sorted(t)
     
-        # #    def isAnagram(self, s: str, t: str) -> bool:
+        # Manual dictionary solution (uncomment to use, ensure only one isAnagram is active)
         # if len(s) != len(t):
         #     return False
         # anagramDict = {}
