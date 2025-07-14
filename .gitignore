@@ -6,3 +6,5 @@ venv/
 ENV/ 
 venv/*
 !venv/.gitignore
+.vscode/
+random/
