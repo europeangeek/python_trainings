@@ -47,7 +47,7 @@ class Solution(object):
 
         # return False
 
-        # Another simple solution using standardlibrary 
+        # Another simple solution using standardlibrary, seen as the most pythonic and friendly for an interview
         # return Counter(s) == Counter(t)
 
         # solution with normal dictionary
@@ -68,6 +68,22 @@ class Solution(object):
 
         # solution based on buildin sorted function
         return sorted(s) == sorted(t)
+    
+        # #    def isAnagram(self, s: str, t: str) -> bool:
+        # if len(s) != len(t):
+        #     return False
+        # anagramDict = {}
+        # for letter in s:
+        #     if letter in anagramDict:
+        #         anagramDict[letter] += 1
+        #     else:
+        #         anagramDict[letter] = 0
+        # for letter in t:
+        #     if letter in anagramDict:
+        #         anagramDict[letter] -= 1
+        #     else:
+        #         return False
+        # return True
 
 solution = Solution()
 print(solution.isAnagram("aacc","ccac"))
