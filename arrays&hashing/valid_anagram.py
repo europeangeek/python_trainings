@@ -20,7 +20,7 @@ from collections import defaultdict, Counter
 # How would you adapt your solution to such a case?
 
 class Solution(object):
-    def isAnagram(self, s, t):
+    def isAnagram(self, s: str, t: str) -> bool:
         """
         :type s: str
         :type t: str
