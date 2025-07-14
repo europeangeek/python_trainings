@@ -1,5 +1,5 @@
 # Given the head of a singly linked list, reverse the list, and return the reversed list.
-example
+# example
 
 # original linkeList
 # 1 -> 2 -> 3 -> 4 -> 5
@@ -24,8 +24,24 @@ example
  
 
 # Follow up: A linked list can be reversed either iteratively or recursively. Could you implement both?
+class Node:
+    def __init__(self, data=None) -> None:
+        self.data = data
+        self.next = None
+        self.previous = None
 
+class LinkedList:
+    def __init__(self):
+        self.head = None
 
+    def append(self, data):
+        if not self.head:
+            self.head = Node(data)
+        else:
+            current = self.head
+            while current.next:
+                current = current.next
+            current.next = Node(data)
 class Solution(object):
     def reverseList(self, head):
         """
@@ -40,6 +56,7 @@ class Solution(object):
             prev = curr
             curr = nxt
         return prev
+    
 class SolutionRecursive(object):
     def reverseList(self, head):
         """
@@ -54,8 +71,12 @@ class SolutionRecursive(object):
         head.next = None
         
         return new_head
+linked_list = LinkedList()
+linked_list.append(1)
+linked_list.append(2)
+linked_list.append(3)
 
 lst = [1, 2, 3, 4, 5]
 solution = Solution()
-print(solution.reverseList())
+print(solution.reverseList(linked_list))
 
