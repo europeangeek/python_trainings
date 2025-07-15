@@ -1,4 +1,4 @@
-from typing import List
+from typing import List, Tuple
 
 class Solution:
     """
@@ -8,20 +8,23 @@ class Solution:
 
     Return the maximum profit you can achieve. You may choose to not make any transactions, in which case the profit would be 0.
     
-    TODO: Another variation might be the amount of days to hold before selling thats why the problem is sligly modified with an output (tuple with maxProfit and amount of days)
+    Another variation might be the amount of days to hold before selling thats why the problem is sligly modified with an output (tuple with maxProfit and amount of days)
     """
-    def maxProfit(self, prices: List[int]) -> int:
+    def maxProfit(self, prices: List[int]) -> Tuple[int, int]:
         l: int = 0
         r: int = 1
         maxProfit = 0
+        days = 0
         while r < len(prices):
             if prices[l] > prices[r]:
                 l = r
             else:
                 profit = prices[r] - prices[l]
-                maxProfit = max(maxProfit, profit)
+                if profit > maxProfit:
+                    maxProfit = profit
+                    days = r - l
             r += 1
-        return maxProfit
+        return (maxProfit, days)
                 
     
 
