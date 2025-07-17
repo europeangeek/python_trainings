@@ -1,3 +1,4 @@
+from typing import List
 # Given a string s containing just the characters '(', ')', '{', '}', '[' and ']', 
 # determine if the input string is valid.
 
@@ -33,7 +34,7 @@ class Solution(object):
         :type s: str
         :rtype: bool
         """
-        stack = []
+        stack: List[str] = []
         closeToOpen = {
             "]": "[",
             "}": "{",
