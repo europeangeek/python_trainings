@@ -28,7 +28,7 @@
 # s consists of parentheses only '()[]{}'.
 
 class Solution(object):
-    def isValid(self, s):
+    def isValid(self, s: str) -> bool:
         """
         :type s: str
         :rtype: bool
@@ -39,17 +39,24 @@ class Solution(object):
             "}": "{",
             ")": "("
         }
-
+        # This version is slightly better because works as well when inside are other unrelated strings
         for c in s:
-            if c in closeToOpen:
-                if stack and stack[-1] == closeToOpen[c]:
-                    stack.pop()
-                else:
-                    return False
-            else:
+            if c in closeToOpen.values():
                 stack.append(c)
-        return True if not stack else False
+            elif c in closeToOpen:
+                if not stack or stack[-1] != closeToOpen[c]:
+                    return False
+                else:
+                    stack.pop()
+        return not stack 
     
 s = "([)]{}"
+sample_expression = "([a+b]{c+d})"
+bad_expression = "([a+b]{c+d}))"
 solution = Solution().isValid(s)
 print(solution)
+solution = Solution().isValid(sample_expression)
+print(solution)
+solution = Solution().isValid(bad_expression)
+print(solution)
+

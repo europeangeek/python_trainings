@@ -26,7 +26,6 @@ class Solution:
             r += 1
         return (maxProfit, days)
                 
-    
 
 prices = [10, 2, 5, 6, 7, 8]
 s = Solution()
